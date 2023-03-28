@@ -36,7 +36,7 @@ jobs:
     - name: Configure and build hello_world app
       run: |
         mkdir hello_world_application/build
-        cd formatter_lib/build
+        cd hello_world_application/build
         cmake ..
         make
         
