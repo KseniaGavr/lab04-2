@@ -23,33 +23,33 @@ jobs:
     - name: Configure and build formatter lib
       run: |
         mkdir formatter_lib/build
-        cd formatter_lib
+        cd formatter_lib/build
         cmake ..
         make
         
     - name: Configure and build formatter_ex lib
       run: |
         mkdir formatter_ex_lib/build
-        cd formatter_ex_lib
+        cd formatter_ex_lib/build
         cmake ..
         make
     - name: Configure and build hello_world app
       run: |
         mkdir hello_world_application/build
-        cd hello_world_application
+        cd hello_world_application/build
         cmake ..
         make
         
     - name: Configure and build solver lib
       run: |
         mkdir solver_lib/build
-        cd solver_lib
+        cd solver_lib/build
         cmake ..
         make
     - name: Configure and build solver app
       run: |
         mkdir solver_application/build
-        cd solver_application
+        cd solver_application/build
         cmake ..
         make
 
