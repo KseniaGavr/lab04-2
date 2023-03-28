@@ -1,0 +1,66 @@
+name: CMake
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
+    # You can convert this to a matrix build if you need cross-platform coverage.
+    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure and build formatter lib
+      run: |
+        mkdir formatter_lib/build
+        cd formatter_lib/build
+        cmake ..
+        make
+        cd ..
+        cd ..
+        
+    - name: Configure and build formatter_ex lib
+      run: |
+        mkdir formatter_ex_lib/build
+        cd formatter_ex_lib/build
+        cmake ..
+        make
+        cd ..
+        cd ..
+
+    - name: Configure and build hello_world app
+      run: |
+        mkdir hello_world_application/build
+        cd formatter_lib/build
+        cmake ..
+        make
+        cd ..
+        cd ..
+        
+    - name: Configure and build solver lib
+      run: |
+        mkdir solver_lib/build
+        cd solver_lib/build
+        cmake ..
+        make
+        cd ..
+        cd ..
+
+    - name: Configure and build solver app
+      run: |
+        mkdir solver_application/build
+        cd solver_application/build
+        cmake ..
+        make
+        cd ..
+        cd ..
